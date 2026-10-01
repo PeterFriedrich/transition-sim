@@ -1,7 +1,8 @@
 # Data sheet — the course materials, transcribed
 
-**Empty: the owner has not supplied the materials yet** (`TODO.md`). Nothing
-here may be filled in from memory or from another course's sheet.
+**Empty: the owner has not supplied a formula or data sheet yet** (`TODO.md`).
+Nothing here may be filled in from memory or from another course's sheet. The
+concept sets are a separate thing and live in `docs/CONCEPTS_*.md`.
 
 This file is where the Math 15 and Science 10 formula sheets, data sheets,
 constants and notation get transcribed, each with its source (document title,

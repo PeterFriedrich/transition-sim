@@ -3,13 +3,14 @@
 ## Project
 A static web app of interactive simulations for tutoring the math and science transition basics: Alberta Math 15 and Science 10. It is a teaching aid: every readout must match what a student gets by hand with the course's own materials. It is deliberately not a general maths or science engine, not a course replacement, and has no backend or accounts. Sibling of `physics_sim`, `chemistry_sim` and `stats-visualizations`, whose apparatus it reuses — when in doubt about a shared helper or workflow rule, `physics_sim` (https://github.com/PeterFriedrich/physics_sim) is the reference implementation.
 
-**State (2026-10-01): apparatus only, no sims.** The owner supplies the course content (outcomes, formula sheets, sim list). Until it arrives, do not fill in units, constants, formulas or a sim list from memory — `TODO.md` "Needs the owner" lists what is waiting.
+**State (2026-10-01): apparatus plus two concept sets (a Math 15 review, Science 10 Unit A), no sims.** The owner supplies the course content as concept sets; more are coming. Do not fill in units, constants, formulas or concepts from memory — `TODO.md` "Needs the owner" lists what is waiting.
 
 ## Key Files
 - `TODO.md` — living backlog and **the source of truth for progress**. Read it first to know what to work on; update it in place as items open/close. Session summaries narrate *what happened*; TODO.md owns *what's left*. Never redo a closed item without asking — its `## Done` section lists every closed item in one line each. Conversely, an *open* item can be stale — reproduce the symptom before acting on it. **When an item closes, move its body to `docs/TODO_archive.md` and leave a `## Done` line** (`python3 tools/todo_archive.py` does it in bulk).
 - `docs/DECISIONS.md` — append-only index of locked decisions: one row + pointer to the doc holding the full reasoning. **Add a row whenever a decision locks.** Check it before re-opening anything that feels "already settled".
-- `docs/SPEC_phase1.md` — phase 1 (**the sim list is open, waiting on the owner**) and the acceptance criteria every sim must meet. Read before adding or changing a sim.
-- `docs/DATA_SHEET.md` — where the owner's course materials (formula sheets, constants, notation) get transcribed. **Empty so far.** Once filled, check a constant or an "is it on the sheet?" question here first.
+- `docs/CONCEPTS_*.md` — the owner's concept sets, **verbatim**: concept IDs, rules, worked examples, common errors, prerequisites. The source for what a sim teaches and for its test cases. Never edit one except on the owner's say-so. So far: `CONCEPTS_math15_review.md` (integers, BEDMAS, fractions, decimals) and `CONCEPTS_science10_unitA.md` (Energy and Matter in Chemical Change; gives a viz hook per concept; sections 4–7 outlined only).
+- `docs/SPEC_phase1.md` — phase 1 (**the sim list is proposed, not yet approved**) and the acceptance criteria every sim must meet. Read before adding or changing a sim.
+- `docs/DATA_SHEET.md` — where formula sheets, constants and notation get transcribed. **Empty so far.** Once filled, check a constant or an "is it on the sheet?" question here first.
 - `docs/ARCHITECTURE.md` — module contracts (model / lib / sims / catalog) and the sim page contract. Read before a new module or a change to a shared helper.
 - `docs/TOKEN_EFFICIENCY.md` — context/token hygiene. Read before bulk-reading screenshots or summaries.
 - `docs/AUDIT_LEDGER.md` — coverage map of executed audit runs. **Add a row when an audit executes; check it before scoping a new one.**
@@ -35,7 +36,8 @@ A static web app of interactive simulations for tutoring the math and science tr
 ## Code Style
 - **A decision that protects a number is a test first, prose second.** Write the guard, then the `DECISIONS.md` row cites its ID (`test_x` — the string that opens a `test(...)` title). A row with nothing to cite is tagged `[unverifiable]`. `scripts/check_decisions_log.py` gates new rows on the merge path.
 - **The maths and science live in `site/js/model/`, pure and DOM-free.** Sims only draw and wire controls; any number shown in a readout comes from a `model/` function that has a test. Rendering code contains no formulas beyond unit conversion.
-- **Constants, formulas and notation come from the course materials** as transcribed in `docs/DATA_SHEET.md` — never a more precise outside value and never an inline literal. A value the materials do not give needs a DECISIONS row naming its source.
+- **Rules, wording, constants and notation come from the owner's materials** (`docs/CONCEPTS_*.md`, `docs/DATA_SHEET.md`) — never a more precise outside value and never an inline literal. A value the materials do not give needs a DECISIONS row naming its source.
+- **A sim's tests include its concepts' worked examples and quick-check answers**, and its catalog entry and page name the concept IDs it serves.
 - **Closed-form over stepping or simulation** wherever a closed form exists, so readouts equal the hand method exactly.
 - Units and sign conventions are stated in the model module's header comment, converted only at the display edge, and shown in the sim's UI where a student could get them backwards.
 - Readouts go through `lib/format.js` so they are written the way students write them.

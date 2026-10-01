@@ -21,7 +21,7 @@ if (!sim) {
   document.title = `${sim.title} · Transition Sims`;
   $('sim-heading').textContent = sim.title;
   $('sim-summary').textContent = sim.summary;
-  $('sim-badge').textContent = `${course.title} · Unit ${unit.id}: ${unit.title}`;
+  $('sim-badge').textContent = `${course.title} · ${unit.title}`;
 
   import(`./sims/${sim.id}.js`)
     .then((mod) => {

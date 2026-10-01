@@ -1,8 +1,9 @@
 # Spec — Phase 1
 
-**Status: scope open.** The sim list (§3) waits on the owner's course content.
-§2, §4 and §5 carry over from physics_sim and hold for every sim regardless of
-which ones are chosen.
+**Status: sim list proposed, not approved.** The owner supplied two concept sets
+on 2026-10-01 (a Math 15 review and Science 10 Unit A); §3 proposes sims for
+both. More concept sets are expected. §2, §4 and §5 carry over from physics_sim
+and hold for every sim.
 
 ## 1. Goal
 
@@ -20,15 +21,71 @@ can be checked against a hand calculation.
 
 ## 3. Scope
 
-**Open — the owner supplies it.** No units, topics or simulations are listed
-here until the owner's outcomes, formula sheets and sim list arrive (`TODO.md`).
-When they do, this section gets the table the siblings have:
+The content comes from the owner as concept sets, kept verbatim in
+`docs/CONCEPTS_*.md`. Each concept has an ID, rules, worked examples and common
+errors; a sim names the concept IDs it serves, its tests use that concept's
+worked examples and quick-check answers, and its "Try this" prompts aim at the
+listed common errors.
 
-| Course | Unit | Simulation (catalog id) |
-|---|---|---|
-| | | |
+**Proposed for `docs/CONCEPTS_math15_review.md` — not approved.** Build nothing
+from this table until the owner picks from it; record the approval as a row in
+`docs/DECISIONS.md`.
 
-and the approval is recorded as a row in `docs/DECISIONS.md`.
+| Course | Unit | Simulation (catalog id) | Concepts | What the student does |
+|---|---|---|---|---|
+| Math 15 | Integers | Integers on the number line (`numberline`) | 1.1–1.3 | Picks two integers and + or −; the sim walks the move on a number line and shows subtraction rewritten as adding the opposite |
+| Math 15 | Integers | Signs in multiplying and dividing (`signs`) | 1.4 | Steps one factor down through zero and watches the product pattern cross into the other sign |
+| Math 15 | BEDMAS | Order of operations, step by step (`bedmas`) | 2.1–2.3, 1.5 | Chooses an expression and predicts the next operation; the sim does one step per click, and shows the wrong answer a left-out rule gives (12 ÷ 3 × 2, −3² vs (−3)²) |
+| Math 15 | Fractions | Fraction bars (`fractionbars`) | 3.1–3.4 | Sets two fractions on bars and a number line; re-cuts them to a common denominator to compare, add or subtract |
+| Math 15 | Fractions | Multiplying and dividing fractions (`fractionarea`) | 3.5–3.8 | Area model for "2/3 of 9/10"; "how many 2/3s fit in 3/4" for division, beside the multiply-by-the-reciprocal working |
+| Math 15 | Decimals | Place value and comparing (`placevalue`) | 4.1, 4.2, 4.6 | Builds decimals in a place-value chart, pads and compares them, and shifts the point for × and ÷ by powers of 10 |
+| Math 15 | Decimals | Decimal arithmetic (`decimalops`) | 4.3–4.5, 4.11 | Lines up the points for + and −; counts decimal places for ×; shifts both points for ÷ |
+| Math 15 | Decimals | Fraction to decimal by long division (`longdivision`) | 4.7–4.9 | Steps through the long division and sees the remainder reach 0 (terminating) or come back (repeating) |
+
+Not proposed: 3.7 mixed numbers and 4.10 rounding as sims of their own (they
+would be options inside the sims above), and the three quick checks (they become
+test cases). The concept set's "Not yet covered" list waits for its own set.
+
+**Proposed for `docs/CONCEPTS_science10_unitA.md` — not approved.** That set
+gives a "Viz hook" for nearly every concept; this table only groups the hooks
+into pages and gives them ids. The hook text in the concept set is the
+description of each sim. Sections 4–7 are outlined only in the set, so their
+sims wait for the detailed version.
+
+| Unit (section) | Simulation (catalog id) | Concepts | Needs data the set does not give |
+|---|---|---|---|
+| 0 Cross-cutting ideas | Energy profile of a reaction (`energyprofile`) | 0.1 | no (qualitative sliders) |
+| 0 Cross-cutting ideas | What the crust, ocean and air are made of (`composition`) | 0.2 | **yes**: composition figures by form |
+| 1 Atomic structure | Build an atom (`buildatom`), with isotopes as its neutron control | 1.1, 1.2 | element names and symbols for Z = 1–20; which neutron counts to offer |
+| 1 Atomic structure | Bohr-Rutherford diagrams (`bohr`), with the ion toggle | 1.3, 2.3 | neutron count per element (only Na's is given) |
+| 1 Atomic structure | Periodic table heatmap (`periodictable`), ion Bohr diagram on click | 1.4, 2.2 | table layout past Ca, if it shows more than the first 20 |
+| 1 Atomic structure | Effective pull across periods 2 and 3 (`effectivepull`) | 1.5 | no (protons minus inner electrons, from 1.3) |
+| 2 Ions and ionic bonding | Energy accounting for NaCl (`ionenergy`) | 2.1 | **yes**: the three energies, or agreement that the bars are qualitative |
+| 2 Ions and ionic bonding | Electron transfer (`transfer`): Na to Cl, Mg to O | 2.3, 2.3b | no |
+| 2 Ions and ionic bonding | Growing a crystal lattice (`lattice`) | 2.4 | no (a teaching model, ARCHITECTURE.md §7) |
+| 2 Ions and ionic bonding | Dissolving: salt vs sugar (`dissolving`) | 2.5 | no (a teaching model) |
+| 3 Formulas and naming | Ionic formulas and names (`ionicformula`): charge-balance bar, multivalent variants, polyatomic brackets | 3.1–3.3 | which of 3.2's "also" metals and 3.3's "possible extras" to include |
+| 3 Formulas and naming | Molecular compounds (`molecular`): ionic-or-molecular check, then name ↔ formula | 3.4, 3.5 | ball-and-stick shapes, if the builder draws them |
+| 4 Balancing (outlined) | Balancing equations (`balancing`) | 4 | the list of equations |
+| 5 Reaction types (outlined) | Reaction types (`reactiontypes`) | 5 | **yes**: the activity series |
+| 6 Acids and bases (outlined) | The pH scale (`ph`) | 6 | titration curve needs its own concept detail |
+| 7 Energy in reactions (outlined) | Bond-energy bookkeeping (`bondenergy`) | 7 | **yes**: bond energies |
+
+2.6 has no hook and no sim. The set's "Test cases for naming sim" and "Common
+student errors" become tests and hints.
+
+Questions the Science 10 set raises (answers go in `docs/DECISIONS.md`):
+
+1. **Valence electrons vs group number.** 1.3 and 1.4 say valence electrons =
+   group number (main groups), while 2.2 numbers the groups 13–18. A readout
+   needs one rule: group number for groups 1–2, group number minus 10 for 13–18,
+   and 2 for He. Confirm, or say which numbering the students use.
+2. **Element order in molecular names (3.4).** The rough order given puts O
+   before the halogens and S before N. It names every example in the set
+   correctly, but a free builder would produce OCl2 where textbooks write Cl2O.
+   Either restrict the builder to listed compounds or supply the order to use.
+3. **Where the missing data comes from** (the "yes" rows above): the owner names
+   a source for each and it is transcribed into `docs/DATA_SHEET.md`.
 
 Out of scope for phase 1: accounts, saved progress, a backend, and
 worked-solution generation.
@@ -36,18 +93,19 @@ worked-solution generation.
 ## 4. Every simulation page must have
 
 1. A canvas view, with play/pause, reset and slow-motion where anything moves.
-2. Controls for every variable the topic's equations use, with units shown.
+2. Controls for every quantity the concept's rules use, with units shown where there are any.
 3. Readouts of the quantities a student would calculate, written the way
    students write them.
-4. A "Key equations" list and at least three "Try this" prompts.
+4. A "Key equations" list (for these concepts, the rules) and at least three
+   "Try this" prompts.
 5. The site-wide colour code, once one is chosen (ARCHITECTURE.md §5).
 
 ## 5. Acceptance criteria
 
 1. Every readout comes from a function in `site/js/model/` with a unit test
-   that checks it against the course's equation or a worked example.
-2. Constants, formulas and notation are the ones in the course materials
-   (`docs/DATA_SHEET.md`).
+   that checks it against the concept set's worked examples and quick checks.
+2. Rules, notation and wording are the concept set's (`docs/CONCEPTS_*.md`);
+   constants and formulas are the ones in `docs/DATA_SHEET.md`.
 3. `npm run check` passes (unit tests + doc guards) on the merge gate.
 4. `npm run verify` loads every page at 390 px and 1280 px, light and dark,
    with no console errors, no blank canvas and no horizontal scroll.

@@ -11,7 +11,7 @@ for (const course of courses) {
   if (!course.units.length) el('p', { class: 'unit-empty', text: 'Coming soon.' }, units);
   for (const unit of course.units) {
     const u = el('div', { class: 'unit' }, units);
-    el('h3', { text: `Unit ${unit.id} · ${unit.title}` }, u);
+    el('h3', { text: unit.title }, u);
     const list = sims.filter((s) => s.course === course.id && s.unit === unit.id);
     if (!list.length) {
       el('p', { class: 'unit-empty', text: 'Coming soon.' }, u);

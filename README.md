@@ -5,8 +5,10 @@ Interactive simulations for tutoring the math and science transition basics:
 student change the variables, and print readouts worked out the way the student
 does it by hand, so the numbers match a hand calculation.
 
-**Status: apparatus only.** There are no simulations yet. The sim list and the
-course materials come from the owner — see `TODO.md` and `docs/SPEC_phase1.md`.
+**Status: no simulations yet.** Two concept sets are in `docs/`: a Math 15
+review (integers, BEDMAS, fractions, decimals) and Science 10 Unit A (Energy and
+Matter in Chemical Change), with a proposed sim list for each in
+`docs/SPEC_phase1.md`. See `TODO.md` for what is waiting.
 
 **Live site (once Pages is enabled):** https://peterfriedrich.github.io/transition-sim/
 

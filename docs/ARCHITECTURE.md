@@ -61,9 +61,10 @@ change before the first sim (`TODO.md`).
 `tests/catalog.test.js` checks every catalog entry against this contract, and
 that no module in `sims/` is missing from the catalog.
 
-A catalog entry is `{ id, course, unit, title, summary, concepts }`. The home
-page lists each course's units as "Unit <id> · <title>" and shows "Coming soon."
-for a unit with no sims, or for a course with no units yet. stats-visualizations
+A catalog entry is `{ id, course, unit, title, summary, concepts }`. A unit is a
+section of one of the owner's concept sets (`docs/CONCEPTS_*.md`), with
+an id from its section number (`catalog.js` header comment). The home page lists each course's units by title and
+shows "Coming soon." for a unit with no sims, or for a course with no units yet. stats-visualizations
 added an `also` field for a sim listed under two courses; port it from there if
 a sim here serves both Math 15 and Science 10.
 
