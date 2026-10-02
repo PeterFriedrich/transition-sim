@@ -18,6 +18,10 @@
      in both dark blocks, and in lib/canvas.js TOKENS. */
   --c-danger: #c81e1e;
   --c-result: #15803d;
+  /* Science: positive and negative charge, and electrons (chemistry_sim's values). */
+  --c-cation: #be185d;
+  --c-anion: #0369a1;
+  --c-electron: #a16207;
   --c-series-a: #2563eb;
   --c-series-b: #d9480f;
 }
@@ -35,6 +39,9 @@
     --c-accent-soft: #1d2940;
     --c-danger: #ff7b7b;
     --c-result: #5ee08a;
+    --c-cation: #f472b6;
+    --c-anion: #38bdf8;
+    --c-electron: #facc15;
     --c-series-a: #6aa8ff;
     --c-series-b: #ff9a57;
   }
@@ -52,6 +59,9 @@
   --c-accent-soft: #1d2940;
   --c-danger: #ff7b7b;
   --c-result: #5ee08a;
+  --c-cation: #f472b6;
+  --c-anion: #38bdf8;
+  --c-electron: #facc15;
   --c-series-a: #6aa8ff;
   --c-series-b: #ff9a57;
 }

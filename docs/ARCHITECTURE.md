@@ -19,7 +19,7 @@ site/
     ├── home.js           home page renderer
     ├── sim-page.js       loads js/sims/<id>.js into sim.html
     ├── model/            pure functions, no DOM   ← tested
-    ├── lib/              canvas, controls, clock, format
+    ├── lib/              canvas, controls, clock, format, atomdraw (Bohr diagrams)
     └── sims/             one module per simulation: UI + drawing only
 tests/                    node:test — model, format, catalog, repo invariants
 tools/                    serve.js (dev server), verify-sims.js (browser smoke test)
@@ -93,7 +93,9 @@ The siblings each have a subject colour code shared by all their sims (in
 physics_sim a velocity is always the same blue). Those tokens were not copied.
 This site's code: the two numbers a student starts with are `series-a` (blue)
 and `series-b` (orange), and the answer is `--c-result` (green). `--c-danger`
-is for errors. A new token goes in three places in `style.css` (light, and both
+is for errors. For science, positive charge is `--c-cation`, negative charge
+`--c-anion` and electrons `--c-electron`, with chemistry_sim's values so the
+two sites agree. A new token goes in three places in `style.css` (light, and both
 dark blocks) and in `TOKENS`.
 
 ## 6. Verification and deployment
@@ -140,3 +142,26 @@ it lives, and is flagged to the student where it could mislead.
   up to 1, and `fractionbars` draws at most 3 wholes.
 - **Most Math 15 sims have nothing that moves**, so they hide the transport bar
   and redraw from the controls every frame.
+- **Shells** (`model/atoms.js`) are 2-8-8-2, as the concept set gives them. That
+  only works through calcium, and the `bohr` page says so for K and Ca.
+- **Effective pull** is protons minus inner electrons: a count, not a measured
+  effective nuclear charge. The page calls it qualitative.
+- **Energy profile** (`model/energy.js`): arbitrary units, reactants at 0. The
+  barrier is raised when needed so it clears the products. "Fast" means a
+  barrier of `FAST` (20) or less, a line drawn for the page, not a measurement.
+  A catalyst halves the barrier.
+- **Lattice** (`sims/lattice.js`): ions wander at random and stick at a free
+  grid site that touches the crystal and suits their charge, more readily when
+  cool and when the site has two or more neighbours; hot water shakes off ions
+  held by one neighbour. It is a flat slice (4 opposite neighbours; the real
+  NaCl crystal has 6) and uses `Math.random()`, so each run differs. Only the
+  counts are read out, labelled "this run".
+- **Dissolving** (`sims/dissolving.js`): units leave the crystal at a set rate
+  and float at fixed places; each ion gets three water molecules turned the
+  right way round. The bulb's brightness follows the number of free ions. No
+  solubility limit is modelled.
+- **Electron transfer** shows whole electrons hopping between Bohr diagrams. It
+  shows the bookkeeping (charges add to zero), not the energy accounting of
+  concept 2.1, which has no sim yet.
+- **Molecular naming** lets a student build formulas that are not real
+  compounds; the page says which ones are on the concept set's list.

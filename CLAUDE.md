@@ -10,7 +10,7 @@ A static web app of interactive simulations for tutoring the math and science tr
 - `docs/DECISIONS.md` — append-only index of locked decisions: one row + pointer to the doc holding the full reasoning. **Add a row whenever a decision locks.** Check it before re-opening anything that feels "already settled".
 - `docs/CONCEPTS_*.md` — the owner's concept sets, **verbatim**: concept IDs, rules, worked examples, common errors, prerequisites. The source for what a sim teaches and for its test cases. Never edit one except on the owner's say-so. So far: `CONCEPTS_math15_review.md` (integers, BEDMAS, fractions, decimals) and `CONCEPTS_science10_unitA.md` (Energy and Matter in Chemical Change; gives a viz hook per concept; sections 4–7 outlined only).
 - `docs/SPEC_phase1.md` — phase 1 (which sims are built, which wait on the owner) and the acceptance criteria every sim must meet. Read before adding or changing a sim.
-- `docs/DATA_SHEET.md` — where formula sheets, constants and notation get transcribed. **Empty so far.** Once filled, check a constant or an "is it on the sheet?" question here first.
+- `docs/DATA_SHEET.md` — data that is not in a concept set, with its source. So far: element names and mass numbers for Z = 1–20 (§2, source not yet confirmed by the owner). No formula sheet has been supplied.
 - `docs/ARCHITECTURE.md` — module contracts (model / lib / sims / catalog) and the sim page contract. Read before a new module or a change to a shared helper.
 - `docs/TOKEN_EFFICIENCY.md` — context/token hygiene. Read before bulk-reading screenshots or summaries.
 - `docs/AUDIT_LEDGER.md` — coverage map of executed audit runs. **Add a row when an audit executes; check it before scoping a new one.**
