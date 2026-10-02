@@ -15,7 +15,6 @@ symptom before acting on it.
 - [ ] **Answer the three Science 10 questions** at the end of SPEC_phase1.md §3: the valence-electrons rule for groups 13–18, the element order for molecular names, and a source for the data the set does not give (composition figures, NaCl energies, activity series, bond energies).
 - [ ] **Confirm or replace the source for element names and mass numbers** (DATA_SHEET.md §2): the Chemistry 30 Data Booklet as chemistry_sim transcribed it, used by `buildatom`, `bohr` and `transfer`.
 - [ ] **Supply the remaining course content**: the other Math 15 concept sets (the first one lists percent, exponent laws, algebra, polynomials, graphing, measurement, logic, statistics and probability as not yet covered), the detailed version of Science 10 Unit A sections 4–7, any further Science 10 units, and any formula or data sheet. Each concept set goes verbatim into `docs/CONCEPTS_<name>.md`, its sections into `site/js/catalog.js` as units, sheets into `docs/DATA_SHEET.md`.
-- [ ] **Enable GitHub Pages**: repository Settings → Pages → Source: *GitHub Actions*. Until then `deploy.yml` fails on every push to `main` (the merge gate `tests.yml` is unaffected).
 
 ### Before tutoring with it
 
@@ -39,3 +38,4 @@ Closed items moved out of `## Open work` live in **`docs/TODO_archive.md`** — 
 - [x] **Colour code chosen: series-a / series-b for the inputs, `--c-result` for the answer (2026-10-02).**
 - [x] **Eight Math 15 sims built as first versions (2026-10-02).**
 - [x] **Nine Science 10 Unit A sims built as first versions (2026-10-02).**
+- [x] **GitHub Pages enabled by the owner; PRs #1 and #2 merged; site live at https://peterfriedrich.github.io/transition-sim/ (2026-10-02).**

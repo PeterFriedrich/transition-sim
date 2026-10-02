@@ -20,7 +20,7 @@ These are **first versions**, built from the owner's concept sets in
 `docs/CONCEPTS_*.md` and not yet walked through by the owner. Seven more
 Science 10 sims wait on the owner (`docs/SPEC_phase1.md` §3). See `TODO.md`.
 
-**Live site (once Pages is enabled):** https://peterfriedrich.github.io/transition-sim/
+**Live site:** https://peterfriedrich.github.io/transition-sim/
 
 ## Run it
 
