@@ -1,8 +1,9 @@
 # Spec — Phase 1
 
-**Status: sim list proposed, not approved.** The owner supplied two concept sets
-on 2026-10-01 (a Math 15 review and Science 10 Unit A); §3 proposes sims for
-both. More concept sets are expected. §2, §4 and §5 carry over from physics_sim
+**Status: first versions being built.** The owner supplied two concept sets on
+2026-10-01 (a Math 15 review and Science 10 Unit A). On 2026-10-02 the owner
+said to build what does not depend on the open questions, as first versions the
+owner will clean up afterward. More concept sets are expected. §2, §4 and §5 carry over from physics_sim
 and hold for every sim.
 
 ## 1. Goal
@@ -27,9 +28,8 @@ errors; a sim names the concept IDs it serves, its tests use that concept's
 worked examples and quick-check answers, and its "Try this" prompts aim at the
 listed common errors.
 
-**Proposed for `docs/CONCEPTS_math15_review.md` — not approved.** Build nothing
-from this table until the owner picks from it; record the approval as a row in
-`docs/DECISIONS.md`.
+**`docs/CONCEPTS_math15_review.md` — all eight built as first versions**
+(2026-10-02). None has had the owner's walkthrough (§5 criterion 5).
 
 | Course | Unit | Simulation (catalog id) | Concepts | What the student does |
 |---|---|---|---|---|
@@ -42,11 +42,12 @@ from this table until the owner picks from it; record the approval as a row in
 | Math 15 | Decimals | Decimal arithmetic (`decimalops`) | 4.3–4.5, 4.11 | Lines up the points for + and −; counts decimal places for ×; shifts both points for ÷ |
 | Math 15 | Decimals | Fraction to decimal by long division (`longdivision`) | 4.7–4.9 | Steps through the long division and sees the remainder reach 0 (terminating) or come back (repeating) |
 
-Not proposed: 3.7 mixed numbers and 4.10 rounding as sims of their own (they
-would be options inside the sims above), and the three quick checks (they become
-test cases). The concept set's "Not yet covered" list waits for its own set.
+Not built: 3.7 mixed numbers as input (answers are shown as mixed numbers), 3.3's
+ordering of three fractions at once, and 4.10 rounding (the model has `round`,
+no sim uses it yet). The quick checks are test cases. The concept set's "Not yet covered" list waits for its own set.
 
-**Proposed for `docs/CONCEPTS_science10_unitA.md` — not approved.** That set
+**`docs/CONCEPTS_science10_unitA.md` — nine built as first versions**
+(2026-10-02): the rows marked ✓. The other seven wait on the owner. That set
 gives a "Viz hook" for nearly every concept; this table only groups the hooks
 into pages and gives them ids. The hook text in the concept set is the
 description of each sim. Sections 4–7 are outlined only in the set, so their
@@ -54,25 +55,28 @@ sims wait for the detailed version.
 
 | Unit (section) | Simulation (catalog id) | Concepts | Needs data the set does not give |
 |---|---|---|---|
-| 0 Cross-cutting ideas | Energy profile of a reaction (`energyprofile`) | 0.1 | no (qualitative sliders) |
+| 0 Cross-cutting ideas | ✓ Energy profile of a reaction (`energyprofile`) | 0.1 | no (qualitative sliders) |
 | 0 Cross-cutting ideas | What the crust, ocean and air are made of (`composition`) | 0.2 | **yes**: composition figures by form |
-| 1 Atomic structure | Build an atom (`buildatom`), with isotopes as its neutron control | 1.1, 1.2 | element names and symbols for Z = 1–20; which neutron counts to offer |
-| 1 Atomic structure | Bohr-Rutherford diagrams (`bohr`), with the ion toggle | 1.3, 2.3 | neutron count per element (only Na's is given) |
-| 1 Atomic structure | Periodic table heatmap (`periodictable`), ion Bohr diagram on click | 1.4, 2.2 | table layout past Ca, if it shows more than the first 20 |
-| 1 Atomic structure | Effective pull across periods 2 and 3 (`effectivepull`) | 1.5 | no (protons minus inner electrons, from 1.3) |
+| 1 Atomic structure | ✓ Build an atom (`buildatom`), with isotopes as its neutron control | 1.1, 1.2 | element names: taken from the Chemistry 30 Data Booklet (DATA_SHEET.md §2) |
+| 1 Atomic structure | ✓ Bohr-Rutherford diagrams (`bohr`), with the ion toggle | 1.3, 1.4, 2.3 | neutron counts: from the booklet's molar masses (DATA_SHEET.md §2) |
+| 1 Atomic structure | Periodic table heatmap (`periodictable`), ion Bohr diagram on click | 1.4, 2.2 | waits on question 1 below; table layout past Ca, if it shows more than the first 20 |
+| 1 Atomic structure | ✓ Effective pull across periods 2 and 3 (`effectivepull`) | 1.5 | no (protons minus inner electrons, from 1.3) |
 | 2 Ions and ionic bonding | Energy accounting for NaCl (`ionenergy`) | 2.1 | **yes**: the three energies, or agreement that the bars are qualitative |
-| 2 Ions and ionic bonding | Electron transfer (`transfer`): Na to Cl, Mg to O | 2.3, 2.3b | no |
-| 2 Ions and ionic bonding | Growing a crystal lattice (`lattice`) | 2.4 | no (a teaching model, ARCHITECTURE.md §7) |
-| 2 Ions and ionic bonding | Dissolving: salt vs sugar (`dissolving`) | 2.5 | no (a teaching model) |
-| 3 Formulas and naming | Ionic formulas and names (`ionicformula`): charge-balance bar, multivalent variants, polyatomic brackets | 3.1–3.3 | which of 3.2's "also" metals and 3.3's "possible extras" to include |
-| 3 Formulas and naming | Molecular compounds (`molecular`): ionic-or-molecular check, then name ↔ formula | 3.4, 3.5 | ball-and-stick shapes, if the builder draws them |
+| 2 Ions and ionic bonding | ✓ Electron transfer (`transfer`): any of six metals to any of six nonmetals | 2.3, 2.3b | no |
+| 2 Ions and ionic bonding | ✓ Growing a crystal lattice (`lattice`), flat not 3D | 2.4 | no (a teaching model, ARCHITECTURE.md §7) |
+| 2 Ions and ionic bonding | ✓ Dissolving: salt vs sugar (`dissolving`) | 2.5 | no (a teaching model) |
+| 3 Formulas and naming | ✓ Ionic formulas and names (`ionicformula`): charge-balance rows, multivalent metals, polyatomic brackets | 3.1–3.3 | built with the listed ions only; 3.2's "also" metals and 3.3's "possible extras" are left out |
+| 3 Formulas and naming | ✓ Molecular compounds (`molecular`): formula → name, C, P, S or N with O, F or Cl | 3.4 | no shapes drawn (atoms are counted out in a row); the pairs offered avoid question 2 below |
 | 4 Balancing (outlined) | Balancing equations (`balancing`) | 4 | the list of equations |
 | 5 Reaction types (outlined) | Reaction types (`reactiontypes`) | 5 | **yes**: the activity series |
 | 6 Acids and bases (outlined) | The pH scale (`ph`) | 6 | titration curve needs its own concept detail |
 | 7 Energy in reactions (outlined) | Bond-energy bookkeeping (`bondenergy`) | 7 | **yes**: bond energies |
 
-2.6 has no hook and no sim. The set's "Test cases for naming sim" and "Common
-student errors" become tests and hints.
+2.6 has no hook and no sim. The set's "Test cases for naming sim" are tests
+(`tests/science10.test.js`); its "Common student errors" feed the prompts.
+Not built from the hooks that were built: the 3-D lattice (2.4), ball-and-stick
+views (3.3, 3.4), drag-and-drop (3.1), a name → formula direction, and the
+diatomics and common names of 3.5.
 
 Questions the Science 10 set raises (answers go in `docs/DECISIONS.md`):
 

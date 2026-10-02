@@ -5,10 +5,20 @@ Interactive simulations for tutoring the math and science transition basics:
 student change the variables, and print readouts worked out the way the student
 does it by hand, so the numbers match a hand calculation.
 
-**Status: no simulations yet.** Two concept sets are in `docs/`: a Math 15
-review (integers, BEDMAS, fractions, decimals) and Science 10 Unit A (Energy and
-Matter in Chemical Change), with a proposed sim list for each in
-`docs/SPEC_phase1.md`. See `TODO.md` for what is waiting.
+| Course | Unit | Simulations |
+|---|---|---|
+| Math 15 | Integers | Integers on the number line; signs in multiplying and dividing |
+| | BEDMAS | Order of operations, step by step |
+| | Fractions | Fraction bars (compare, add, subtract); multiplying and dividing fractions |
+| | Decimals | Place value; decimal arithmetic; fraction to decimal by long division |
+| Science 10 (Unit A) | Cross-cutting ideas | Energy profile of a reaction |
+| | Atomic structure | Build an atom; Bohr-Rutherford diagrams; nuclear pull and screening |
+| | Ions and ionic bonding | Electron transfer; growing a crystal lattice; dissolving salt vs sugar |
+| | Formulas and naming | Ionic formulas and names; naming molecular compounds |
+
+These are **first versions**, built from the owner's concept sets in
+`docs/CONCEPTS_*.md` and not yet walked through by the owner. Seven more
+Science 10 sims wait on the owner (`docs/SPEC_phase1.md` §3). See `TODO.md`.
 
 **Live site (once Pages is enabled):** https://peterfriedrich.github.io/transition-sim/
 

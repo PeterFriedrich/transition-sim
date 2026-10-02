@@ -47,7 +47,7 @@ media?.addEventListener?.('change', () => (cached = null));
 
 const TOKENS = [
   'bg', 'surface', 'ink', 'muted', 'grid', 'accent',
-  'danger', 'series-a', 'series-b',
+  'danger', 'result', 'series-a', 'series-b', 'cation', 'anion', 'electron',
 ];
 
 // Canvas colours come from the same tokens as the page, so both themes work.
@@ -183,4 +183,49 @@ export function niceStep(span, target = 8) {
 export function roundRect(ctx, x, y, w, h, r) {
   ctx.beginPath();
   ctx.roundRect ? ctx.roundRect(x, y, w, h, r) : ctx.rect(x, y, w, h);
+}
+
+// One line of text that shrinks to fit maxW (never below `min`), for working
+// lines that are long on a phone. Returns the size it used.
+export function fitText(ctx, str, x, y, maxW, { size = 16, min = 10, weight = 500, ...opts } = {}) {
+  let s = size;
+  ctx.font = font(s, weight);
+  const w = ctx.measureText(str).width;
+  if (w > maxW) s = Math.max(min, Math.floor((s * maxW) / w));
+  text(ctx, str, x, y, { ...opts, size: s, weight });
+  return s;
+}
+
+// Text made of segments, some highlighted: [{ str, hot }]. Centred on x.
+export function segText(ctx, segs, x, y, maxW, { size = 16, min = 10, weight = 500, color, hotColor } = {}) {
+  const whole = segs.map((s) => s.str).join('');
+  let s = size;
+  ctx.font = font(s, weight);
+  const w = ctx.measureText(whole).width;
+  if (w > maxW) s = Math.max(min, Math.floor((s * maxW) / w));
+  ctx.font = font(s, weight);
+  let cx = x - ctx.measureText(whole).width / 2;
+  for (const seg of segs) {
+    ctx.font = font(s, seg.hot ? 750 : weight);
+    const sw = ctx.measureText(seg.str).width;
+    text(ctx, seg.str, cx, y, { size: s, weight: seg.hot ? 750 : weight, color: seg.hot ? hotColor ?? theme().accent : color });
+    cx += sw;
+  }
+  return s;
+}
+
+// A centred block of text, wrapped at spaces to fit maxW. `y` is the middle of
+// the first line; returns the y of the line after the last one.
+export function para(ctx, str, cx, y, maxW, { size = 13, weight = 500, lineH = size * 1.45, color } = {}) {
+  ctx.save();
+  ctx.font = font(size, weight);
+  const lines = [];
+  for (const word of str.split(' ')) {
+    const last = lines[lines.length - 1];
+    if (last !== undefined && ctx.measureText(`${last} ${word}`).width <= maxW) lines[lines.length - 1] = `${last} ${word}`;
+    else lines.push(word);
+  }
+  ctx.restore();
+  lines.forEach((s, i) => text(ctx, s, cx, y + i * lineH, { color, size, weight, align: 'center' }));
+  return y + lines.length * lineH;
 }
