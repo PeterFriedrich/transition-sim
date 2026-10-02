@@ -89,6 +89,36 @@ export function choice(parent, { label, options, value }) {
   };
 }
 
+// A typed value. `value` is the raw text; the sim decides whether it is valid
+// and calls `setError` to say so under the box.
+export function textbox(parent, { label, value = '', width }) {
+  const id = `ctl-${++uid}`;
+  const row = el('div', { class: 'ctl ctl-choice' }, parent);
+  el('label', { for: id, html: label }, row);
+  const box = el('input', { id, type: 'text', value, autocomplete: 'off', autocapitalize: 'off', spellcheck: 'false' }, row);
+  if (width) box.style.width = width;
+  const err = el('div', { class: 'ctl-error' }, row);
+  err.hidden = true;
+  const listeners = [];
+  box.addEventListener('input', () => listeners.forEach((f) => f(box.value)));
+  return {
+    get value() {
+      return box.value;
+    },
+    set value(v) {
+      box.value = v;
+    },
+    setError(msg) {
+      err.hidden = !msg;
+      if (err.textContent !== (msg || '')) err.textContent = msg || '';
+    },
+    onChange(f) {
+      listeners.push(f);
+      return this;
+    },
+  };
+}
+
 export function toggle(parent, { label, checked = false }) {
   const id = `ctl-${++uid}`;
   const row = el('div', { class: 'ctl ctl-toggle' }, parent);

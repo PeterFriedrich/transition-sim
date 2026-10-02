@@ -13,9 +13,11 @@
   --c-accent-ink: #ffffff;
   --c-accent-soft: #e7eefc;
 
-  /* Sim colour code: add a token here (and in both dark blocks and lib/canvas.js
-     TOKENS) when a sim needs a colour that means the same thing on every page. */
+  /* Sim colour code, the same on every page: the two numbers you start with are
+     series-a and series-b, and the answer is --c-result. A new token goes here,
+     in both dark blocks, and in lib/canvas.js TOKENS. */
   --c-danger: #c81e1e;
+  --c-result: #15803d;
   --c-series-a: #2563eb;
   --c-series-b: #d9480f;
 }
@@ -32,6 +34,7 @@
     --c-accent-ink: #0e1116;
     --c-accent-soft: #1d2940;
     --c-danger: #ff7b7b;
+    --c-result: #5ee08a;
     --c-series-a: #6aa8ff;
     --c-series-b: #ff9a57;
   }
@@ -48,6 +51,7 @@
   --c-accent-ink: #0e1116;
   --c-accent-soft: #1d2940;
   --c-danger: #ff7b7b;
+  --c-result: #5ee08a;
   --c-series-a: #6aa8ff;
   --c-series-b: #ff9a57;
 }
@@ -148,10 +152,11 @@ a { color: var(--c-accent); }
 .ctl-unit { font-size: 13px; color: var(--c-muted); min-width: 34px; }
 input[type="range"] { width: 100%; accent-color: var(--c-accent); margin: 6px 0 0; }
 .ctl-choice { display: flex; flex-direction: column; gap: 4px; font-size: 14px; }
-select {
+select, input[type="text"] {
   font: inherit; font-size: 14px; padding: 6px 8px; color: var(--c-ink);
   background: var(--c-bg); border: 1px solid var(--c-border); border-radius: 6px;
 }
+.ctl-error { color: var(--c-danger); font-size: 13px; }
 .ctl-toggle { display: flex; align-items: center; gap: 8px; font-size: 14px; }
 .ctl-toggle input { accent-color: var(--c-accent); width: 16px; height: 16px; margin: 0; }
 .ctl-buttons { display: flex; flex-wrap: wrap; gap: 8px; }

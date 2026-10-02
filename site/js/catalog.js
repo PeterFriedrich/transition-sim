@@ -36,7 +36,72 @@ export const courses = [
 ];
 
 // One entry per sim: { id, course, unit, title, summary, concepts: [] }.
-export const sims = [];
+export const sims = [
+  {
+    id: 'numberline',
+    course: 'm15',
+    unit: '1',
+    title: 'Integers on the Number Line',
+    summary: 'Add and subtract integers as moves along a number line. Subtracting is adding the opposite.',
+    concepts: ['sign and size', 'adding integers', 'adding the opposite'],
+  },
+  {
+    id: 'signs',
+    course: 'm15',
+    unit: '1',
+    title: 'Signs in Multiplying and Dividing',
+    summary: 'Follow the pattern of products down through zero to see why a negative times a negative is positive.',
+    concepts: ['same signs, different signs', 'product patterns', 'division facts'],
+  },
+  {
+    id: 'bedmas',
+    course: 'm15',
+    unit: '2',
+    title: 'Order of Operations, Step by Step',
+    summary: 'Predict the next operation, then watch it happen one line at a time. Type your own expression.',
+    concepts: ['BEDMAS', 'left to right', '−3² vs (−3)²'],
+  },
+  {
+    id: 'fractionbars',
+    course: 'm15',
+    unit: '3',
+    title: 'Fraction Bars',
+    summary: 'Re-cut two fractions into pieces of the same size, then compare, add or subtract them.',
+    concepts: ['equivalent fractions', 'common denominator', 'simplifying'],
+  },
+  {
+    id: 'fractionarea',
+    course: 'm15',
+    unit: '3',
+    title: 'Multiplying and Dividing Fractions',
+    summary: 'A part of a part as an area, and division as “how many fit?”, beside the working.',
+    concepts: ['straight across', 'reciprocal', 'sign rules'],
+  },
+  {
+    id: 'placevalue',
+    course: 'm15',
+    unit: '4',
+    title: 'Decimal Place Value',
+    summary: 'Put two decimals in a place-value chart to compare them, read one as a fraction, and shift it by powers of 10.',
+    concepts: ['place value', 'comparing decimals', 'powers of 10'],
+  },
+  {
+    id: 'decimalops',
+    course: 'm15',
+    unit: '4',
+    title: 'Decimal Arithmetic',
+    summary: 'Line up the points to add and subtract, count places to multiply, shift both points to divide.',
+    concepts: ['column method', 'counting decimal places', 'shifting the point'],
+  },
+  {
+    id: 'longdivision',
+    course: 'm15',
+    unit: '4',
+    title: 'Fraction to Decimal',
+    summary: 'Long division one digit at a time: the remainder reaches zero, or it comes back and the digits repeat.',
+    concepts: ['long division', 'terminating and repeating', 'factors of 2 and 5'],
+  },
+];
 
 export function findSim(id) {
   return sims.find((s) => s.id === id) ?? null;

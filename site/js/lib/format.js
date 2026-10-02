@@ -34,3 +34,27 @@ export function withUnit(x, unit, sig = 3) {
 export function snap(x, scale) {
   return Math.abs(x) < 1e-9 * Math.abs(scale) ? 0 : x;
 }
+
+// A number with a real minus sign (−4, not -4). Takes a number or a digit string.
+export function signed(x) {
+  return minus(String(x));
+}
+
+// The same, in brackets when negative, the way it is written after an operation: 5 − (−3).
+export function bracketed(x) {
+  const s = signed(x);
+  return s.startsWith('−') ? `(${s})` : s;
+}
+
+// A [numerator, denominator] pair the way students write it: 3/8, −3/10, or 2 when the denominator is 1.
+export function frac([n, d]) {
+  return d === 1 ? signed(n) : `${signed(n)}/${d}`;
+}
+
+// A mixed number from model/fractions.js mixed(): 1 5/12, 3, 5/12, −2 1/3.
+export function mixedStr({ negative, whole, n, d }) {
+  const parts = [];
+  if (whole || !n) parts.push(String(whole));
+  if (n) parts.push(`${n}/${d}`);
+  return (negative ? '−' : '') + parts.join(' ');
+}

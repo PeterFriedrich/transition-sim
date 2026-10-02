@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { fmt, snap, superscript } from '../site/js/lib/format.js';
+import { fmt, snap, superscript, signed, bracketed, frac, mixedStr } from '../site/js/lib/format.js';
 
 test('test_format_significant_figures', () => {
   assert.equal(fmt(9.81), '9.81');
@@ -27,4 +27,19 @@ test('test_format_non_finite', () => {
 test('test_format_snap_is_relative_not_absolute', () => {
   assert.equal(snap(1e-17, 0.3), 0);
   assert.equal(snap(1.6e-19, 1.6e-19), 1.6e-19); // a real charge is not residue
+});
+
+test('test_format_signs_brackets_and_fractions_like_students_write_them', () => {
+  assert.equal(signed(-4), '−4');
+  assert.equal(signed('-0.05'), '−0.05');
+  assert.equal(bracketed(-3), '(−3)');
+  assert.equal(bracketed(3), '3');
+  assert.equal(frac([17, 12]), '17/12');
+  assert.equal(frac([-3, 10]), '−3/10');
+  assert.equal(frac([2, 1]), '2');
+  assert.equal(mixedStr({ negative: false, whole: 1, n: 5, d: 12 }), '1 5/12');
+  assert.equal(mixedStr({ negative: true, whole: 2, n: 1, d: 3 }), '−2 1/3');
+  assert.equal(mixedStr({ negative: false, whole: 0, n: 5, d: 12 }), '5/12');
+  assert.equal(mixedStr({ negative: false, whole: 3, n: 0, d: 1 }), '3');
+  assert.equal(mixedStr({ negative: false, whole: 0, n: 0, d: 1 }), '0');
 });

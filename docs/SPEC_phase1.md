@@ -1,8 +1,9 @@
 # Spec — Phase 1
 
-**Status: sim list proposed, not approved.** The owner supplied two concept sets
-on 2026-10-01 (a Math 15 review and Science 10 Unit A); §3 proposes sims for
-both. More concept sets are expected. §2, §4 and §5 carry over from physics_sim
+**Status: first versions being built.** The owner supplied two concept sets on
+2026-10-01 (a Math 15 review and Science 10 Unit A). On 2026-10-02 the owner
+said to build what does not depend on the open questions, as first versions the
+owner will clean up afterward. More concept sets are expected. §2, §4 and §5 carry over from physics_sim
 and hold for every sim.
 
 ## 1. Goal
@@ -27,9 +28,8 @@ errors; a sim names the concept IDs it serves, its tests use that concept's
 worked examples and quick-check answers, and its "Try this" prompts aim at the
 listed common errors.
 
-**Proposed for `docs/CONCEPTS_math15_review.md` — not approved.** Build nothing
-from this table until the owner picks from it; record the approval as a row in
-`docs/DECISIONS.md`.
+**`docs/CONCEPTS_math15_review.md` — all eight built as first versions**
+(2026-10-02). None has had the owner's walkthrough (§5 criterion 5).
 
 | Course | Unit | Simulation (catalog id) | Concepts | What the student does |
 |---|---|---|---|---|
@@ -42,11 +42,12 @@ from this table until the owner picks from it; record the approval as a row in
 | Math 15 | Decimals | Decimal arithmetic (`decimalops`) | 4.3–4.5, 4.11 | Lines up the points for + and −; counts decimal places for ×; shifts both points for ÷ |
 | Math 15 | Decimals | Fraction to decimal by long division (`longdivision`) | 4.7–4.9 | Steps through the long division and sees the remainder reach 0 (terminating) or come back (repeating) |
 
-Not proposed: 3.7 mixed numbers and 4.10 rounding as sims of their own (they
-would be options inside the sims above), and the three quick checks (they become
-test cases). The concept set's "Not yet covered" list waits for its own set.
+Not built: 3.7 mixed numbers as input (answers are shown as mixed numbers), 3.3's
+ordering of three fractions at once, and 4.10 rounding (the model has `round`,
+no sim uses it yet). The quick checks are test cases. The concept set's "Not yet covered" list waits for its own set.
 
-**Proposed for `docs/CONCEPTS_science10_unitA.md` — not approved.** That set
+**Proposed for `docs/CONCEPTS_science10_unitA.md`.** The rows that need no
+answer from the owner are being built as first versions. That set
 gives a "Viz hook" for nearly every concept; this table only groups the hooks
 into pages and gives them ids. The hook text in the concept set is the
 description of each sim. Sections 4–7 are outlined only in the set, so their
